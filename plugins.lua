@@ -44,20 +44,28 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
+  -- replacement for jose-elias-alvarez/null-ls.nvim
   {
-    "mfussenegger/nvim-lint",
-    event = "VeryLazy",
-    config = function()
-      require "custom.configs.lint"
-    end,
-  },
-  {
-    "mhartington/formatter.nvim",
+    "nvimtools/none-ls.nvim",
     event = "VeryLazy",
     opts = function()
-      return require "custom.configs.formatter"
+      return require "custom.configs.null-ls"
     end,
   },
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require "custom.configs.lint"
+  --   end,
+  -- },
+  -- {
+  --   "mhartington/formatter.nvim",
+  --   event = "VeryLazy",
+  --   opts = function()
+  --     return require "custom.configs.formatter"
+  --   end,
+  -- },
   {
     "Exafunction/codeium.vim",
     event = "BufEnter",

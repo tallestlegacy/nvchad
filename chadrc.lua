@@ -13,10 +13,11 @@ M.ui = {
     style = "flat_light",
   },
   telescope = {
-    style = "bordered",
+    style = "borderless",
   },
   tabufline = {
     show_numbers = true,
+    lazyload = true,
   },
   lsp = {
     signature = {

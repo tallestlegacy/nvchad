@@ -1,8 +1,8 @@
-local  config = require("plugins.configs.lspconfig")
+local config = require "plugins.configs.lspconfig"
 local on_attach = config.on_attach
 local capabilities = config.capabilities
 
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
 -- Go
@@ -12,26 +12,21 @@ lspconfig.gopls.setup {
   capabilities = capabilities,
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  root_dir = util.root_pattern("go.work", "go.mod", ".git", "*.go"),
   settings = {
     gopls = {
       completeUnimported = true,
       usePlaceholders = true,
-      analysis = {
-        unusedParams = true,
-      },
     },
   },
 }
 
-
-
 -- Web
 
-local function organize_imports ()
+local function organize_imports()
   local params = {
     command = "_typescript.organizeImports",
-    arguments = {vim.api.nvim_buf_get_name(0)},
+    arguments = { vim.api.nvim_buf_get_name(0) },
   }
   vim.lsp.buf.execute_command(params)
 end
@@ -47,7 +42,7 @@ lspconfig.tsserver.setup {
   commands = {
     OrganizeImports = {
       organize_imports,
-      description = "Organize Imports"
-    }
-  }
+      description = "Organize Imports",
+    },
+  },
 }
