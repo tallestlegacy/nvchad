@@ -1,10 +1,11 @@
 local plugins = {
   {
-    "willianboman/mason.nvim",
+    "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
         -- lua
         "stylua",
+        "lua-language-server",
         -- go
         "gopls",
         "gofumpt",
