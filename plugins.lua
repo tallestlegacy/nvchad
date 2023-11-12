@@ -13,6 +13,7 @@ local plugins = {
         "gopher",
         -- web
         "eslint-lsp",
+        "eslint_d",
         "typescript-language-server",
         "prettier",
         "vue-language-server",
@@ -48,6 +49,9 @@ local plugins = {
   {
     "nvimtools/none-ls.nvim",
     event = "VeryLazy",
+    config = function()
+      require "custom.configs.null-ls"
+    end,
     opts = function()
       return require "custom.configs.null-ls"
     end,
