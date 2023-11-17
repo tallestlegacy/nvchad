@@ -1,19 +1,20 @@
 ---@type ChadrcConfig
 local M = {}
 
-require "custom.configs.neovide"
-
 M.ui = {
   theme = "onedark",
+  transparency = false,
   statusline = {
     theme = "minimal",
     separator_style = "round",
   },
   cmp = {
     style = "flat_light",
+    icons = true,
+    lspkind_text = true,
   },
   telescope = {
-    style = "borderless",
+    style = "bordered",
   },
   tabufline = {
     show_numbers = true,
@@ -28,5 +29,6 @@ M.ui = {
 
 M.plugins = "custom.plugins"
 M.mappings = require "custom.mappings"
+-- require "custom.configs.ui"
 
 return M

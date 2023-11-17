@@ -60,3 +60,16 @@ lspconfig.tsserver.setup {
     },
   },
 }
+
+lspconfig.volar.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "vue" },
+}
+
+lspconfig.svelte.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "svelte" },
+}
+

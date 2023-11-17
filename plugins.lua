@@ -46,17 +46,25 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
+
+  -- {
+  --   "NvChad/nvterm",
+  --   config = function()
+  --     require("nvterm").setup {
+  --       terminals = {
+  --         type_opts = {
+  --           float = {
+  --             width = 0.9,
+  --             height = 0.75,
+  --           },
+  --         },
+  --       },
+  --     }
+  --   end,
+  -- },
+
   -- replacement for jose-elias-alvarez/null-ls.nvim
-  {
-    "nvimtools/none-ls.nvim",
-    event = "VeryLazy",
-    config = function()
-      require "custom.configs.null-ls"
-    end,
-    opts = function()
-      return require "custom.configs.null-ls"
-    end,
-  },
+  { "nvimtools/none-ls.nvim" },
   -- {
   --   "mfussenegger/nvim-lint",
   --   event = "VeryLazy",
@@ -82,8 +90,17 @@ local plugins = {
       require("gopher").setup(opts)
     end,
     build = function()
-      vim.ccmd [[silent! GoInstallDeps]]
+      vim.cmd [[silent! GoInstallDeps]]
     end,
+  },
+  {
+    'akinsho/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+    config = true,
   },
 }
 
